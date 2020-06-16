@@ -1,5 +1,5 @@
-import jwt from 'jsonwebtoken';
-import config from './config';
+var jwt = require('jsonwebtoken');
+var config = require('./config');
 const getToken = (user) =>{
     return jwt.sign({
         _id: user._id,
