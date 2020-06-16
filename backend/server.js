@@ -13,7 +13,7 @@ var bodyParser =require('body-parser');
 dotenv.config();
 
 const mongodburl= config.MONGODB_URL;
-const URI = process.env.MONGODB_URL || 'mongodb+srv://admin:passwordpassword@cluster0-bco9o.mongodb.net/Koob?retryWrites=true&w=majority'
+const URI = process.env.MONGODB_URL 
 const connectDb = async()=>{
     await  mongoose.connect(URI,{
         useCreateIndex: true,
