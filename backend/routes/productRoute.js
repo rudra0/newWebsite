@@ -93,4 +93,4 @@ router.put("/:id", isAuth, isAdmin, async(req, res)=>{
         return res.status(500).send({ msg: "Error In Updating Product" });
     
 })
-export default router;
+module.exports= router;

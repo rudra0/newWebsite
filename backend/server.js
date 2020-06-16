@@ -1,12 +1,13 @@
 var path = require("path")
 var express =require("express");
 var data = require('../backend/data.js');
-import config from'../backend/config';
-import dotenv from 'dotenv';
-import mongoose from 'mongoose';
-import userRoute from '../backend/routes/userRoute';
-import productRoute from '../backend/routes/productRoute';
-import bodyParser from 'body-parser';
+var config =require('../backend/config');
+var dotenv = require('dotenv');
+var mongoose = require('mongoose') ;
+var router = require("./routes/userRoute");
+var productRoute = require("./routes/productRoute")
+
+var bodyParser =require('body-parser');
 
 
 dotenv.config();
@@ -48,7 +49,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.use("/api/users", userRoute);
+app.use("/api/users", router);
 
 app.use("/api/products", productRoute);
 
