@@ -75,15 +75,15 @@ app.use("/api/products", productRoute);
 //     app.use(express.static('koob/build/index.js'))
 // }
 
-app.use(express.static(path.resolve(__dirname, '../koob', 'build')));
+app.use(express.static('koob/build'))
+
+// app.use(express.static(path.resolve(__dirname, '../koob', 'build')));
 app.get('/*', (req, res) => {
     const resolve = path.resolve(__dirname, '../koob', 'build', 'index.html')
     console.log(resolve.replace("/app",''))
     res.sendFile(resolve.replace("/app",''));
   
 });
-
-
 
 app.listen(PORT,()=>{
     console.log("connected");
