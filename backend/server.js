@@ -78,7 +78,7 @@ app.use("/api/products", productRoute);
 app.use(express.static(path.join(__dirname, 'koob/build')));
 app.get('*', (req, res) => {
   res.sendFile(path.join(`${__dirname}/../koob/build/index.html`));
-  console.log(res.sendFile)
+  console.log(res.sendFile.path)
 });
 
 app.listen(PORT,()=>{
