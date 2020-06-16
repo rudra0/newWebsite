@@ -48,6 +48,6 @@ const isAdmin = ( req, res, next ) =>{
     return res.status(401).send({ msg: 'Token is Not valid'});
 }
 
-export {
+module.exports= {
     getToken, isAuth, isAdmin
 }
