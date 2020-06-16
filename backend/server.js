@@ -81,5 +81,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT,()=>{
-    console.log("connected");
+    console.log("connected", URI);
 })
