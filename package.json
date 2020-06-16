@@ -4,9 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node backend/server.js ",
-    "build": "rm -rf dist && babel backend -d dist",
-    "heroku-postbuild": "npm run build && cd koob && npm install && npm run build"
+    "koob-install": "npm install --prefix koob",
+    "start": "node backend/server.js",
+    "server": " node backend/server.js",
+    "koob": "npm start --prefix koob",
+    "dev": "concurrently \"npm run server\" \"npm run koob\"",
+    "nothing": "nothing",
+    "heroku-postbuild":
+      "NPM_CONFIG_PRODUCTION=false npm install --prefix koob && npm run build --prefix koob"
     
   },
   "author": "",
