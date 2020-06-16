@@ -72,7 +72,7 @@ app.use("/api/products", productRoute);
 
 if (process.env.NODE_ENV === 'production')
 {
-    app.use(express.static('koob/build/index.js'))
+    app.use(express.static('koob/build'))
 }
 
 // app.use(express.static(path.join(__dirname, '/../koob/build')));
