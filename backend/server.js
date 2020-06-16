@@ -80,8 +80,8 @@ app.use(express.static('koob/build'))
 // app.use(express.static(path.resolve(__dirname, '../koob', 'build')));
 app.get('/*', (req, res) => {
     const resolve = path.resolve(__dirname, '../koob', 'build', 'index.html')
-    console.log(resolve.replace("/app",''))
-    res.sendFile(resolve.replace("/app",''));
+    console.log(resolve)
+    res.sendFile(resolve);
   
 });
 
