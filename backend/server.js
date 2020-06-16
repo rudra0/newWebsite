@@ -13,7 +13,7 @@ var bodyParser =require('body-parser');
 dotenv.config();
 
 const mongodburl= config.MONGODB_URL;
-const URI = process.env.MONGODB_URL || 'mongodb+srv://admin:passwordpassword@cluster0-bco9o.mongodb.net/Koob?retryWrites=true&w=majority'
+const URI = process.env.MONGODB_URL || 'mongodb+srv://admin:passwordpassword@cluster0-bco9o.mongodb.net/client?retryWrites=true&w=majority'
 const connectDb = async()=>{
     await  mongoose.connect(URI,{
         useCreateIndex: true,
@@ -72,9 +72,9 @@ app.use("/api/products", productRoute);
 
 if (process.env.NODE_ENV === 'production')
 {
-    app.use(express.static('koob/build'))
+    app.use(express.static('client/build'))
     app.get('/*', (req, res) => {
-        const resolve = path.resolve(__dirname, '../koob', 'build', 'index.html')
+        const resolve = path.resolve(__dirname, '../client', 'build', 'index.html')
         console.log(resolve)
         res.sendFile(resolve);
       
@@ -83,7 +83,7 @@ if (process.env.NODE_ENV === 'production')
 
 
 
-// app.use(express.static(path.resolve(__dirname, '../koob', 'build')));
+// app.use(express.static(path.resolve(__dirname, '../client', 'build')));
 
 
 app.listen(PORT,()=>{
