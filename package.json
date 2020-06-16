@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node backend/server.js ",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix koob && npm run build --prefix koob",
-    "dev": "concurrently -n 'server,koob' -c 'red,green'  \"node backend/server.js\" \"npm run koob\""
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js",
+    "koob": "npm run start --prefix koob",
+    "dev": "concurrently \"npm run server\" \"npm run koob\" ",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix koob && npm run build --prefix koob"
   },
   "author": "",
   "license": "ISC",
