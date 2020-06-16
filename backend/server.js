@@ -75,7 +75,7 @@ app.use("/api/products", productRoute);
 //     app.use(express.static('koob/build/index.js'))
 // }
 
-app.use(express.static(path.join(__dirname, '/../koob/build')));
+app.use(express.static(path.resolve(__dirname, '../koob', 'build')));
 app.get('/*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../koob', 'build', 'index.html'));
 });
