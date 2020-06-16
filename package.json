@@ -8,7 +8,8 @@
     "server": "node backend/server.js",
     "koob": "npm run start --prefix koob",
     "dev": "concurrently \"npm run server\" \"npm run koob\" ",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix koob && npm run build --prefix koob"
+    "dev-build": "cd koob && npm install  && npm run build",
+    "heroku-postbuild": "cd koob && npm install  && npm run build"
   },
   "author": "",
   "license": "ISC",
