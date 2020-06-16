@@ -70,20 +70,21 @@ app.use("/api/products", productRoute);
 // })
 
 
-// if (process.env.NODE_ENV === 'production')
-// {
-//     app.use(express.static('koob/build/index.js'))
-// }
+if (process.env.NODE_ENV === 'production')
+{
+    app.use(express.static('koob/build'))
+    app.get('/*', (req, res) => {
+        const resolve = path.resolve(__dirname, '../koob', 'build', 'index.html')
+        console.log(resolve)
+        res.sendFile(resolve);
+      
+    });
+}
 
-app.use(express.static('koob/build'))
+
 
 // app.use(express.static(path.resolve(__dirname, '../koob', 'build')));
-app.get('/*', (req, res) => {
-    const resolve = path.resolve(__dirname, '../koob', 'build', 'index.html')
-    console.log(resolve)
-    res.sendFile(resolve);
-  
-});
+
 
 app.listen(PORT,()=>{
     console.log("connected");
